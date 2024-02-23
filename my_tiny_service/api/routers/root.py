@@ -25,3 +25,4 @@ def get_root(
 def get_timestamp():
     """Endpoint to return the current timestamp in ISO format."""
     return datetime.now().isoformat()
+router = APIRouter()
