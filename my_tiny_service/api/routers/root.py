@@ -20,3 +20,7 @@ def get_root(
     not matter.
     """
     return f"{api_settings.title}, version {api_settings.version}"
+
+def get_timestamp():
+    """Endpoint to return the current timestamp in ISO format."""
+    return datetime.now().isoformat()
