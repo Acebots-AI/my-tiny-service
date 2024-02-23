@@ -1,3 +1,4 @@
+from datetime import datetime
 """Examples testing the api using the starlette TestClient.
 
 The test fixture "client" is defined in conftest.py
