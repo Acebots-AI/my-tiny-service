@@ -28,3 +28,7 @@ def get_timestamp() -> str:
     """
     current_time = datetime.now().isoformat()
     return current_time
+
+@router.get("/timestamp", response_model=str)
+def timestamp() -> str:
+    return get_timestamp()
