@@ -30,3 +30,6 @@ def get_timestamp():
 def get_current_timestamp():
     """Returns the current timestamp in ISO format."""
     return datetime.now().isoformat()
+@router.get("/timestamp")
+def timestamp_endpoint():
+    return get_current_timestamp()
