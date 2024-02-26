@@ -34,3 +34,6 @@ def get_current_timestamp():
 @router.get("/timestamp")
 def timestamp_endpoint():
     return get_current_timestamp()
+@router.get("/timestamp", response_model=str)
+def timestamp():
+    return get_current_timestamp()
