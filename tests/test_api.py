@@ -56,3 +56,8 @@ def test_get_timestamp(client):
     assert response.status_code == 200
     assert response.json() is not None
     # Further validation of the ISO format can be added here
+def test_timestamp_endpoint(client):
+    response = client.get("/timestamp")
+    assert response.status_code == 200
+    assert response.json() is not None
+    # Further validation of the timestamp format can be added here
