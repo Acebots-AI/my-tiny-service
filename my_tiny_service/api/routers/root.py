@@ -24,5 +24,7 @@ def get_root(
 
 @router.get("/timestamp")
 def get_timestamp() -> str:
-    """Endpoint to return the current timestamp in ISO format."""
-    return datetime.now().isoformat()
+    """Endpoint to return the current timestamp in ISO format.
+    """
+    current_time = datetime.now().isoformat()
+    return current_time
