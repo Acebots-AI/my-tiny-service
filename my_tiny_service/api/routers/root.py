@@ -22,6 +22,7 @@ def get_root(
 
 
 @router.get("/timestamp")
+@router.get("/timestamp")
 def get_current_timestamp() -> str:
     """Endpoint to return the current timestamp in ISO 8601 format.
 
@@ -29,4 +30,4 @@ def get_current_timestamp() -> str:
         str: The current timestamp in ISO 8601 format.
     """
     from datetime import datetime
-    return datetime.now().isoformat()
+    return datetime.utcnow().isoformat() + 'Z'
