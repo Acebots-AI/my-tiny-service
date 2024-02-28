@@ -55,6 +55,7 @@ def test_divide_by_zero(client: starlette.testclient.TestClient) -> None:
 def test_timestamp_endpoint(client: starlette.testclient.TestClient) -> None:
     """Test that the timestamp endpoint returns the current timestamp in ISO format."""
     response = client.get("/timestamp")
+    print(f"Response: {response.text}")
     assert response.status_code == 200
     # This test checks if the response is in ISO format by trying to parse it.
     from datetime import datetime
