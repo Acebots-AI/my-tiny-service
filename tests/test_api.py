@@ -60,8 +60,11 @@ def test_timestamp_endpoint(client: starlette.testclient.TestClient) -> None:
     # This test checks if the response is in ISO format by trying to parse it.
     from datetime import datetime
     try:
-        datetime.fromisoformat(response.text)
+        # Ensure the response is correctly formatted for parsing
+        timestamp = response.text.strip('"')
+        datetime.fromisoformat(timestamp)
         is_iso_format = True
     except ValueError:
         is_iso_format = False
     assert is_iso_format, "The '/timestamp' endpoint did not return a timestamp in ISO format."
+
