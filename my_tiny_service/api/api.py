@@ -45,16 +45,7 @@ def get_api() -> fastapi.FastAPI:
 
     # Register the paths in the root router on the API.
     api.include_router(root.router)
-
-    # Example endpoint doing simple maths arithmetic.
-    # Routers can have a prefix, which is a very convenient way to do
-    # versioning and custom response messages for status codes.
-    #
-    # Read more in the FastAPI docs
-    # https://fastapi.tiangolo.com/tutorial/bigger-applications/
-    # TODO: Investigate the mypy error from the line below
-    api.include_router(
-        maths.router, prefix="/v1/maths", responses=maths.responses  # type: ignore
-    )
+    api.include_router(maths.router)
+    api.include_router(timestamp.router)
 
     return api
