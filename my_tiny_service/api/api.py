@@ -1,5 +1,4 @@
 from my_tiny_service.api.routers.timestamp import router as timestamp_router
-from .timestamp import router as timestamp_router
 import fastapi
 from starlette.middleware.cors import CORSMiddleware
 
