@@ -50,3 +50,10 @@ def test_divide_by_zero(client: starlette.testclient.TestClient) -> None:
 
     # THEN the status code should be 400 (Bad request)
     assert response.status_code == 400
+
+
+def test_get_current_timestamp(client):
+    response = client.get("/timestamp")
+    assert response.status_code == 200
+    assert "timestamp" in response.json()
+    # Further validation of the timestamp format can be added here.
