@@ -20,3 +20,9 @@ def get_root(
     not matter.
     """
     return f"{api_settings.title}, version {api_settings.version}"
+
+
+@router.get("/timestamp")
+def get_timestamp() -> str:
+    """Endpoint to return the current timestamp in ISO 8601 format."""
+    return datetime.now().isoformat()
