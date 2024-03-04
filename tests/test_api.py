@@ -50,3 +50,15 @@ def test_divide_by_zero(client: starlette.testclient.TestClient) -> None:
 
     # THEN the status code should be 400 (Bad request)
     assert response.status_code == 400
+
+
+def test_timestamp_endpoint(client: starlette.testclient.TestClient) -> None:
+    """Test that the timestamp endpoint returns the current timestamp in ISO format."""
+    response = client.get("/timestamp")
+    assert response.status_code == 200
+    # Checking if the response is in ISO 8601 format
+    try:
+        datetime.fromisoformat(response.json())
+        assert True
+    except ValueError:
+        assert False, "Timestamp is not in ISO 8601 format"
