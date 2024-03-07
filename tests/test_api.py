@@ -1,3 +1,6 @@
+import pytest
+from fastapi.testclient import TestClient
+from my_tiny_service.main import app
 """Examples testing the api using the starlette TestClient.
 
 The test fixture "client" is defined in conftest.py
