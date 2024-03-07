@@ -1,4 +1,5 @@
 import pytest
+import pytest
 from my_tiny_service.api.routers.maths import exponentiation, ExponentiationInput
 
 def test_exponentiation():
