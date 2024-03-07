@@ -121,3 +121,8 @@ class ExponentiationInput(pydantic.BaseModel):
 
 class ExponentiationResult(pydantic.BaseModel):
     result: float
+
+def exponentiation(input_data: ExponentiationInput) -> ExponentiationResult:
+    """Calculates the exponentiation of two numbers."""
+    result = input_data.base ** input_data.exponent
+    return ExponentiationResult(result=result)
