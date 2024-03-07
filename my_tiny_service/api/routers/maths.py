@@ -113,3 +113,13 @@ def division(maths_input: MathsIn) -> MathsResult:
             status_code=starlette.status.HTTP_400_BAD_REQUEST,
             detail="Division by zero is not allowed",
         ) from e
+
+
+def exponentiation(maths_input: MathsIn) -> MathsResult:
+    """Calculates the exponentiation of two numbers."""
+    try:
+        result = maths_input.a ** maths_input.b
+        return MathsResult(operation="exponentiation", result=result)
+    except Exception as e:
+        logger.error(f"Error during exponentiation: {e}")
+        raise fastapi.HTTPException(status_code=400, detail="Invalid input for exponentiation.")
