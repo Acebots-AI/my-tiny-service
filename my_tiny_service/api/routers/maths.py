@@ -118,3 +118,6 @@ def division(maths_input: MathsIn) -> MathsResult:
 class ExponentiationInput(pydantic.BaseModel):
     base: float
     exponent: float
+
+class ExponentiationResult(pydantic.BaseModel):
+    result: float
