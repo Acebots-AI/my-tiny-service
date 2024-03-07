@@ -126,3 +126,7 @@ def exponentiation(input_data: ExponentiationInput) -> ExponentiationResult:
     """Calculates the exponentiation of two numbers."""
     result = input_data.base ** input_data.exponent
     return ExponentiationResult(result=result)
+
+@router.post("/exponentiation", response_model=ExponentiationResult, responses=responses)
+def exponentiation_endpoint(input_data: ExponentiationInput) -> ExponentiationResult:
+    return exponentiation(input_data)
