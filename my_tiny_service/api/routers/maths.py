@@ -39,7 +39,8 @@ class MathsResult(MathsBase):
 
 
 class MathsIn(MathsBase):
-    pass
+    a: float
+    b: float
 
 
 @router.post(
