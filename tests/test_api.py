@@ -53,3 +53,33 @@ def test_divide_by_zero(client: starlette.testclient.TestClient) -> None:
 
     # THEN the status code should be 400 (Bad request)
     assert response.status_code == 400
+
+
+def test_exponentiation_endpoint(client: starlette.testclient.TestClient) -> None:
+    response = client.post(
+        "/exponentiation",
+        json={"base": 2, "exponent": 3},
+    )
+    assert response.status_code == 200
+    assert response.json() == {"result": 8}
+
+    response = client.post(
+        "/exponentiation",
+        json={"base": 2, "exponent": -2},
+    )
+    assert response.status_code == 200
+    assert response.json() == {"result": 0.25}
+
+    response = client.post(
+        "/exponentiation",
+        json={"base": 2, "exponent": 0},
+    )
+    assert response.status_code == 200
+    assert response.json() == {"result": 1}
+
+    response = client.post(
+        "/exponentiation",
+        json={"base": 0, "exponent": 3},
+    )
+    assert response.status_code == 200
+    assert response.json() == {"result": 0}
