@@ -113,3 +113,8 @@ def division(maths_input: MathsIn) -> MathsResult:
             status_code=starlette.status.HTTP_400_BAD_REQUEST,
             detail="Division by zero is not allowed",
         ) from e
+
+
+class ExponentiationInput(pydantic.BaseModel):
+    base: float
+    exponent: float
