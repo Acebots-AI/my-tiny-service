@@ -1,3 +1,4 @@
+from datetime import datetime
 import fastapi
 
 from my_tiny_service.api.dependencies import get_api_settings
@@ -19,3 +20,9 @@ def get_root(
     not matter.
     """
     return f"{api_settings.title}, version {api_settings.version}"
+
+
+@router.get("/timestamp", summary="Get the current timestamp in ISO format")
+def get_timestamp() -> str:
+    """Returns the current timestamp in ISO format."""
+    return datetime.now().isoformat()
