@@ -59,3 +59,8 @@ def test_timestamp_endpoint(client: starlette.testclient.TestClient) -> None:
     # The response should be a valid ISO format timestamp
     # This is a basic check, in a real scenario, more robust validation would be needed
     assert "T" in response.json()
+
+def test_get_timestamp(client: starlette.testclient.TestClient) -> None:
+    response = client.get("/timestamp")
+    assert response.status_code == 200
+    # Additional checks can be added to validate the timestamp format
