@@ -1,6 +1,5 @@
 """Examples testing the api using the starlette TestClient.
 
-The test fixture "client" is defined in conftest.py
 These tests are trivial examples, they are not meant as an introduction to
 proper testing.
 
