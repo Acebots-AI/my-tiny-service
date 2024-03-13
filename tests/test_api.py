@@ -50,3 +50,18 @@ def test_divide_by_zero(client: starlette.testclient.TestClient) -> None:
 
     # THEN the status code should be 400 (Bad request)
     assert response.status_code == 400
+
+def test_exponentiation(client: starlette.testclient.TestClient) -> None:
+    """Test that the exponentiation endpoint correctly calculates A^B."""
+
+    # GIVEN the exponentiation path and two numbers for exponentiation
+    path = "/v1/maths/exponentiation"
+    body = {"number1": 2, "number2": 3}
+
+    # WHEN calling the api
+    response = client.post(path, json=body)
+
+    # THEN the result should be 8
+    assert response.json().get("result") == 8
+
+
