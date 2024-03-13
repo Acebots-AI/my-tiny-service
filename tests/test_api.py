@@ -64,6 +64,5 @@ def test_exponentiation(client: starlette.testclient.TestClient) -> None:
     assert response.json().get("result") == 8
 
 
+
 The test fixture "client" is defined in conftest.py
-These tests are trivial examples, they are not meant as an introduction to
-proper testing.
