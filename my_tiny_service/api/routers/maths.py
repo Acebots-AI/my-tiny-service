@@ -5,6 +5,8 @@ import fastapi
 import pydantic
 import starlette.status
 
+from pydantic import BaseModel
+
 router = fastapi.APIRouter()
 logger = logging.getLogger(__name__)
 
@@ -81,6 +83,21 @@ def subtraction(maths_input: MathsIn) -> MathsResult:
         **maths_input.dict(),
         operation="subtraction",
         result=maths_input.number1 - maths_input.number2,
+    )
+
+
+@router.post(
+    "/exponentiation",
+    summary="Calculate the exponentiation of a base number to a power",
+    response_model=MathsResult,
+)
+def exponentiation(maths_input: MathsIn) -> MathsResult:
+    """Calculates the exponentiation of a base number to a power."""
+    result = maths_input.number1 ** maths_input.number2
+    return MathsResult(
+        **maths_input.dict(),
+        operation="exponentiation",
+        result=result,
     )
 
 
