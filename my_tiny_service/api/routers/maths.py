@@ -113,3 +113,19 @@ def division(maths_input: MathsIn) -> MathsResult:
             status_code=starlette.status.HTTP_400_BAD_REQUEST,
             detail="Division by zero is not allowed",
         ) from e
+
+
+@router.post(
+    "/exponentiation",
+    summary="Calculate the exponentiation of a base number to a power",
+    response_model=MathsResult,
+)
+def exponentiation(maths_input: MathsIn) -> MathsResult:
+    """Calculates the exponentiation of a base number to a power."""
+    result = maths_input.number1 ** maths_input.number2
+    return MathsResult(
+        **maths_input.dict(),
+        operation="exponentiation",
+        result=result,
+    )
+
