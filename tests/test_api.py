@@ -56,7 +56,7 @@ def test_exponentiation(client: starlette.testclient.TestClient) -> None:
 
     # GIVEN the exponentiation path and two numbers to exponentiate
     path = "/exponentiation"
-    body = {"a": 2, "b": 3}
+    body = {"number1": 2, "number2": 3}
 
     # WHEN calling the api
     response = client.post(path, json=body)
