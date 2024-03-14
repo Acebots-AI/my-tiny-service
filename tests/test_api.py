@@ -55,6 +55,7 @@ def test_exponentiation(client: starlette.testclient.TestClient) -> None:
     """Test that the exponentiation endpoint correctly calculates the power of a number."""
     response = client.post("/v1/maths/exponentiation", json={"number1": 2, "number2": 3})
     assert response.status_code == 200
-    assert response.json() == {"result": 8}
+    assert response.json() == {"result": 8, "operation": "exponentiation"}
+
 
 
